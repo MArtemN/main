@@ -76,3 +76,30 @@ function writeYourGenres() {
 }
 
 writeYourGenres();
+
+function first() {
+    setTimeout(function() {
+        console.log(11);
+    }, 500);
+}
+
+function second() {
+    console.log(22);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+    console.log(`I'm leraning: ${lang}`);
+    callback();
+}
+
+function done() {
+    console.log("I'm done this lesson");
+}
+
+learnJS('JavaScript', done);
+// learnJS('JavaScript', function() {
+//     console.log("I'm done this lesson");
+// });
