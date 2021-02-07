@@ -1,15 +1,6 @@
-'use strict';
+"use strict";
 
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-
-start();
+const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -19,87 +10,12 @@ const personalMovieDB = {
     privat: false
 };
 
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?', ''),
-              b = prompt('На сколько оцените его?', '');
-    
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log('done');
-        } else {
-            console.log('error');
-            i--;
-        }
-    }
-}
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+    b = prompt('На сколько оцените его?', ''),
+    с = prompt('Один из последних просмотренных фильмов?', ''),
+    d = prompt('На сколько оцените его?', '');
 
-rememberMyFilms();
-// let i = 0;
-// do {
-//     const a = prompt('Один из последних просмотренных фильмов?', ''),
-//            b = prompt('На сколько оцените его?', '');
-//            personalMovieDB.movies[a] = b;
-//            i++;
-// }
-// while (i < 2);
+    personalMovieDB.movies[a] = b; 
+    personalMovieDB.movies[c] = d; 
 
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        console.log('Просмотрено довольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log('Вы классический зритель');
-    } else if (personalMovieDB.count >= 30) {
-        console.log('Вы киноман');
-    } else {
-        console.log('Произошла ошибка');
-    }
-}
-
-detectPersonalLevel();
-
-function showMyDB(hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-
-showMyDB(personalMovieDB.privat)
-
-// console.log(personalMovieDB);
-
-function writeYourGenres() {
-    for(let i = 1; i <= 3; i++) {
-        const genre = prompt(`Ваш любимый жанр под номером ${i}`);
-        personalMovieDB.genres[i - 1] = genre;
-    }
-}
-
-writeYourGenres();
-
-function first() {
-    setTimeout(function() {
-        console.log(11);
-    }, 500);
-}
-
-function second() {
-    console.log(22);
-}
-
-first();
-second();
-
-function learnJS(lang, callback) {
-    console.log(`I'm leraning: ${lang}`);
-    callback();
-}
-
-function done() {
-    console.log("I'm done this lesson");
-}
-
-learnJS('JavaScript', done);
-// learnJS('JavaScript', function() {
-//     console.log("I'm done this lesson");
-// });
+    console.log(personalMovieDB);
